@@ -27,4 +27,9 @@ export default class OrderDataDatabase implements OrderData {
     );
     return options.count;
   }
+
+  async clean(): Promise<void> {
+    await this.connection.query('delete from cccat9.item', []);
+    await this.connection.query('delete from cccat9.order', []);
+  }
 }

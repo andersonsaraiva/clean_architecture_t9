@@ -1,6 +1,5 @@
 import Coupon from './Coupon';
 import Cpf from './Cpf';
-import FreightCalculator from './FreightCalculator';
 import Item from './Item';
 import OrderCode from './OrderCode';
 import Product from './Product';
@@ -35,7 +34,6 @@ export default class Order {
         currencyValue
       )
     );
-    this.freight += FreightCalculator.calculate(product);
   }
 
   addCoupon(coupon: Coupon) {
