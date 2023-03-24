@@ -73,3 +73,5 @@ onMounted(async () => {
   <div class="order-code">{{ order.code }}</div>
   <div class="order-total">{{ order.total }}</div>
 </template>
+
+<style scoped></style>

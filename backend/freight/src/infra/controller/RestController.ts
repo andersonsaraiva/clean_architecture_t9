@@ -1,10 +1,11 @@
 import CalculateFreight from '../../application/CalculateFreight';
+import UseCase from '../../application/UseCase';
 import HttpServer from '../http/HttpServer';
 
 export default class RestController {
   constructor(
     readonly httpServer: HttpServer,
-    readonly calculateFreight: CalculateFreight
+    readonly calculateFreight: UseCase
   ) {
     httpServer.on(
       'post',

@@ -8,6 +8,7 @@ import Currencies from '../../src/domain/entities/Currencies';
 import Product from '../../src/domain/entities/Product';
 import FreightGatewayHttp from '../../src/infra/gateway/FreightGatewayHttp';
 import CatalogGatewayHttp from '../../src/infra/gateway/CatalogGatewayHttp';
+import StockGatewayHttp from '../../src/infra/gateway/StockGatewayHttp';
 
 let checkout: Checkout;
 
@@ -50,11 +51,13 @@ beforeEach(function () {
   };
   const freightGateway = new FreightGatewayHttp();
   const catalogGateway = new CatalogGatewayHttp();
+  const stockGateway = new StockGatewayHttp();
   checkout = new Checkout(
     catalogGateway,
     couponData,
     orderData,
-    freightGateway
+    freightGateway,
+    stockGateway
   );
 });
 
@@ -125,7 +128,7 @@ test('Deve fazer um pedido com 3 produtos com código do pedido', async function
     ]
   };
   const output = await checkout.execute(input);
-  expect(output.code).toBe('202200000001');
+  expect(output.code).toBe('202300000001');
 });
 
 test('Deve fazer um pedido com 3 produtos com CEP de origem e destino', async function () {
